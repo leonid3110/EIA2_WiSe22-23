@@ -1,0 +1,46 @@
+body{
+    background-color: #caf4ffc0;
+    color: #000;
+}
+
+h1{
+    font-family: Arial, Helvetica, sans-serif;
+    color: #000;
+    position: fixed;
+    left: 20px;
+    top: 20px;
+    position: relative;
+}
+
+#div0, #div1{
+    width: 400px;
+    height: 500px;
+    background-color: #6591748f;
+    color: #000;
+    position: absolute;
+}
+#div0{
+    left: 50px;
+    top: 100px;
+}
+#div1{
+    left: 600px;
+    top: 100px;
+}
+#button0, #button1{
+    background-color: #cae5ffb7;
+    width: 70px;
+    height: 25px;
+}
+
+span#fixedSpan{
+    background-color: rgba(0, 0, 0, 0.829);
+    color: rgba(255, 255, 255, 0.747);
+    position:fixed;
+    left: 10px;
+    top: 10px;
+    width: 400px;
+    height: 40px;
+    text-align: center;
+    font-family:'Courier New', Courier, monospace;
+}
