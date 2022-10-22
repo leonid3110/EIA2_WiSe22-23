@@ -9,12 +9,15 @@ var EventInspector;
         let body = document.querySelector("body");
         body.addEventListener("click", logInfo);
         body.addEventListener("keyup", logInfo);
-        let div0 = document.querySelector("div#div0");
+        let div0 = document.querySelector("#div0");
         div0.addEventListener("click", logInfo);
         div0.addEventListener("keyup", logInfo);
-        let div1 = document.querySelector("div#div1");
+        let div1 = document.querySelector("#div1");
         div1.addEventListener("click", logInfo);
         div1.addEventListener("keyup", logInfo);
+        let button = document.querySelector("#button");
+        button.addEventListener("click", customEvent);
+        document.addEventListener("BZZZT!", logInfo);
     }
     function setInfoBox(_event) {
         let positionX = _event.clientX;
@@ -27,10 +30,15 @@ var EventInspector;
         document.querySelector("span#fixedSpan").innerHTML = "X-Pos.:" + positionX + "  " + "Y-Pos.:" + positionY + " Target: " + targetObject.tagName;
     }
     function logInfo(_event) {
-        console.log("Event" + _event);
-        console.log("Event Type" + _event.type);
-        console.log("Event Target" + _event.target);
-        console.log("Current Event Target" + _event.currentTarget);
+        console.log("Event " + _event);
+        console.log("Event Type " + _event.type);
+        console.log("Event Target " + _event.target);
+        console.log("Current Event Target " + _event.currentTarget);
+    }
+    function customEvent(_event) {
+        let button = document.querySelector("button#button");
+        let thunderEvent = new CustomEvent("BZZZT!", { bubbles: true });
+        button.dispatchEvent(thunderEvent);
     }
 })(EventInspector || (EventInspector = {}));
 //# sourceMappingURL=inspector.js.map

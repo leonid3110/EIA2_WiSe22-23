@@ -8,12 +8,16 @@ namespace EventInspector {
         let body: HTMLElement =<HTMLBodyElement>document.querySelector("body");
         body.addEventListener("click", logInfo);
         body.addEventListener("keyup", logInfo);
-        let div0 : HTMLDivElement = <HTMLDivElement >document.querySelector("div#div0");
+        let div0 : HTMLDivElement = <HTMLDivElement >document.querySelector("#div0");
         div0.addEventListener("click" ,logInfo);
         div0.addEventListener("keyup", logInfo);
-        let div1 : HTMLDivElement = <HTMLDivElement>document.querySelector("div#div1");
+        let div1 : HTMLDivElement = <HTMLDivElement>document.querySelector("#div1");
         div1.addEventListener("click", logInfo);
         div1.addEventListener("keyup", logInfo);
+        let button : HTMLButtonElement = <HTMLButtonElement>document.querySelector("#button");
+        button.addEventListener("click", customEvent);
+        document.addEventListener("BZZZT!", logInfo);
+        
     }
 
     function setInfoBox(_event : MouseEvent){
@@ -30,9 +34,16 @@ namespace EventInspector {
     }
 
     function logInfo(_event: Event){
-        console.log("Event" + _event);
-        console.log("Event Type" + _event.type);
-        console.log("Event Target" + _event.target);
-        console.log("Current Event Target" + _event.currentTarget)
+        console.log("Event " + _event);
+        console.log("Event Type " + _event.type);
+        console.log("Event Target " + _event.target);
+        console.log("Current Event Target " + _event.currentTarget)
+    }
+
+    function customEvent(_event: Event){
+        let button: HTMLButtonElement = <HTMLButtonElement> document.querySelector("button#button");
+
+        let thunderEvent: CustomEvent = new CustomEvent("BZZZT!", { bubbles:true});
+        button.dispatchEvent(thunderEvent);
     }
 }
